@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Cotización en BNC y FWND</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="iconoArsUsdt192x192.png">
+    <link rel="stylesheet" href="styles.css"> <!-- Enlaza tu archivo CSS externo -->
+</head>
+<body>
+    <div class="contenedor">
+        <img src="iconoArsUsdt3.png" alt="coinArsUsdt" width="300" height="300" id="imagenCentral">
+        <p id="precioBinance">Cargando precio de Binance...</p>
+        <p id="precioFiwind">Cargando precio de Fiwind...</p>
+        <p id="diferenciaPorcentual">Calculando...</p>
+    </div>
+    <script src="spreadBF.js"></script>
+    <script>
+        // Llama a las funciones para obtener las cotizaciones
+        obtenerCotizacionBinance().then(cotizacionBinance => {
+            document.getElementById("precioBinance").textContent = `Cotización BINANCE: ${cotizacionBinance} USDT/ARS`;
+        });
+        obtenerCotizacionFiwind().then(cotizacionFiwind => {
+            document.getElementById("precioFiwind").textContent = `Cotización FIWIND: ${cotizacionFiwind} USDT/ARS`;
+        });
+        // Actualizar cada 3 segundos 
+        setInterval(async () => {
+            const cotizacionBinance = await obtenerCotizacionBinance();
+            const cotizacionFiwind = await obtenerCotizacionFiwind();
+            if (cotizacionBinance && cotizacionFiwind) {
+                document.getElementById("precioBinance").textContent = `Cotización BINANCE: ${cotizacionBinance} USDT/ARS`;
+                document.getElementById("precioFiwind").textContent = `Cotización FIWIND: ${cotizacionFiwind} USDT/ARS`;
+                const diferenciaPorcentual = ((cotizacionFiwind - cotizacionBinance) / cotizacionBinance) * 100;
+                document.getElementById("diferenciaPorcentual").textContent = `Diferencia: ${diferenciaPorcentual.toFixed(2)}%`;
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

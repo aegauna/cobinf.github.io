@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    background-image: url('tetherFondo.png'); /* Cambia 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-repeat: repeat-y; /* Evita que la imagen se repita */
+    min-height: 100vh;
+}
+#imagenCentral {
+    display: flex;
+    margin: auto;
+    margin-bottom: 5%;
+}
+#precioBinance {
+    font-size: 35px;
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    color: #15c50f;
+    display: flex;
+    border: 5px solid #e0f2fa;
+    background-color: rgba(239, 240, 211, 0.90); /* Agrega el color de fondo que desees */
+    border-radius: 10px;
+    max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: auto;
+    margin-bottom: 3vh;
+    }
+#precioFiwind {
+    font-size: 35px;
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    color: #15c50f;
+    display: flex;
+    border: 5px solid #e0f2fa;
+    background-color: rgb(239, 240, 211, 0.90); /* Agrega el color de fondo que desees */
+    border-radius: 10px;
+    max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: auto;
+    margin-bottom: 3vh;
+}
+
+#diferenciaPorcentual {
+    font-size: 50px;
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    color: rgb(0, 0, 0); /* Cambia el color según tus preferencias */
+    display: flex;
+    border: 5px solid #3007e7;
+    border-radius: 10px;
+    background-color: rgb(240, 241, 147); /* Agrega el color de fondo que desees */
+    max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: auto; /* Centra horizontalmente */
+}
