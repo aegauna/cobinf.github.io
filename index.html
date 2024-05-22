@@ -10,30 +10,45 @@
     <link rel="stylesheet" href="styles.css"> <!-- Enlaza tu archivo CSS externo -->
 </head>
 <body>
-    <div class="contenedor">
-        <img src="iconoArsUsdt3.png" alt="coinArsUsdt" width="300" height="300" id="imagenCentral">
-        <p id="precioBinance">Cargando precio de Binance...</p>
-        <p id="precioFiwind">Cargando precio de Fiwind...</p>
-        <p id="diferenciaPorcentual">Calculando...</p>
+    <div class="datoImagen">
+        <img src="iconoArsUsdt3.png" alt="coinArsUsdt" id="imagenCentral">
+        <p id="precioBinance">Binance...</p>
+        <div class="datos">
+            <div class="contenedor1">     
+                <p id="precioFiwind">Fiwind...</p>
+                <p id="diferenciaPorcentual">Datos...</p>
+            </div>
+            <div class="contenedor2">
+                <p id="precioBelo">Belo...</p>
+                <p id="diferenciaPorcentual2">Datos...</p>
+            </div>
+        </div>
     </div>
     <script src="spreadBF.js"></script>
     <script>
         // Llama a las funciones para obtener las cotizaciones
         obtenerCotizacionBinance().then(cotizacionBinance => {
-            document.getElementById("precioBinance").textContent = `Cotización BINANCE: ${cotizacionBinance} USDT/ARS`;
+            document.getElementById("precioBinance").textContent = `BINANCE: ${cotizacionBinance} ARS`;
         });
         obtenerCotizacionFiwind().then(cotizacionFiwind => {
-            document.getElementById("precioFiwind").textContent = `Cotización FIWIND: ${cotizacionFiwind} USDT/ARS`;
+            document.getElementById("precioFiwind").textContent = `FIWIND: ${cotizacionFiwind} ARS`;
+        });
+        obtenerCotizacionBelo().then(cotizacionBelo => {
+            document.getElementById("precioBelo").textContent = ` BELO : ${cotizacionBelo} ARS`;
         });
         // Actualizar cada 3 segundos 
         setInterval(async () => {
             const cotizacionBinance = await obtenerCotizacionBinance();
             const cotizacionFiwind = await obtenerCotizacionFiwind();
+            const cotizacionBelo = await obtenerCotizacionBelo();
             if (cotizacionBinance && cotizacionFiwind) {
-                document.getElementById("precioBinance").textContent = `Cotización BINANCE: ${cotizacionBinance} USDT/ARS`;
-                document.getElementById("precioFiwind").textContent = `Cotización FIWIND: ${cotizacionFiwind} USDT/ARS`;
+                document.getElementById("precioBinance").textContent = `BINANCE: ${cotizacionBinance} ARS`;
+                document.getElementById("precioFiwind").textContent = `FIWIND: ${cotizacionFiwind} ARS`;
+                document.getElementById("precioBelo").textContent = ` BELO : ${cotizacionBelo} ARS`;
                 const diferenciaPorcentual = ((cotizacionFiwind - cotizacionBinance) / cotizacionBinance) * 100;
-                document.getElementById("diferenciaPorcentual").textContent = `Diferencia: ${diferenciaPorcentual.toFixed(2)}%`;
+                document.getElementById("diferenciaPorcentual").textContent = ` ${diferenciaPorcentual.toFixed(2)}%`;
+                const diferenciaPorcentual2 = ((cotizacionBelo - cotizacionBinance) / cotizacionBinance) * 100;
+                document.getElementById("diferenciaPorcentual2").textContent = ` ${diferenciaPorcentual2.toFixed(2)}%`;
             }
         }, 3000);
     </script>

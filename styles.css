@@ -1,29 +1,52 @@
-body {
+html {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    background-image: url('tetherFondo.png'); /* Cambia 'ruta_de_tu_imagen.jpg' por la ruta de tu imagen */
-    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
-    background-repeat: repeat-y; /* Evita que la imagen se repita */
-    min-height: 100vh;
+    height: 100%;
+    background-image: url('tetherFondo.png');
+    background-size: cover;
+}
+body {
+    display: grid;
+    width: 100%;
+}
+.datoImagen {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+.datos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+}
+.contenedor1 {
+    display: grid;
+    place-items: center;
+    flex-direction: column;
+}
+.contenedor2 {
+    display: grid;
+    place-items: center;
+    flex-direction: column;
 }
 #imagenCentral {
-    display: flex;
     margin: auto;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
+    width: 10em;
+    height: 10em;
 }
 #precioBinance {
-    font-size: 35px;
-    text-align: center; /* Alinea el texto al centro horizontalmente */
+    font-size: 200%;
     color: #15c50f;
-    display: flex;
+    display: grid;
+    place-items: center;
     border: 5px solid #e0f2fa;
     background-color: rgba(239, 240, 211, 0.90); /* Agrega el color de fondo que desees */
     border-radius: 10px;
-    max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
-    margin: auto;
+    width: 60%;
     margin-bottom: 3vh;
     }
 #precioFiwind {
@@ -34,7 +57,19 @@ body {
     border: 5px solid #e0f2fa;
     background-color: rgb(239, 240, 211, 0.90); /* Agrega el color de fondo que desees */
     border-radius: 10px;
-    max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+    max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: auto;
+    margin-bottom: 3vh;
+}
+#precioBelo {
+    font-size: 35px;
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    color: #15c50f;
+    display: flex;
+    border: 5px solid #e0f2fa;
+    background-color: rgb(239, 240, 211, 0.90); /* Agrega el color de fondo que desees */
+    border-radius: 10px;
+    max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
     margin: auto;
     margin-bottom: 3vh;
 }
@@ -47,6 +82,19 @@ body {
     border: 5px solid #3007e7;
     border-radius: 10px;
     background-color: rgb(240, 241, 147); /* Agrega el color de fondo que desees */
-    max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+    max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
     margin: auto; /* Centra horizontalmente */
+    justify-content: space-around;
+}
+#diferenciaPorcentual2 {
+    font-size: 50px;
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    color: rgb(0, 0, 0); /* Cambia el color según tus preferencias */
+    display: flex;
+    border: 5px solid #3007e7;
+    border-radius: 10px;
+    background-color: rgb(240, 241, 147); /* Agrega el color de fondo que desees */
+    max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: auto; /* Centra horizontalmente */
+    justify-content: space-around;
 }

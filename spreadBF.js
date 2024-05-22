@@ -27,17 +27,31 @@ async function obtenerCotizacionFiwind() {
         return 'Error al obtener datos de Fiwind';
     }
 }
+// Función para obtener la cotización de Fiwind
+async function obtenerCotizacionBelo() {
+    try {
+        const url = "https://criptoya.com/api/belo/usdt/ars/0.1";
+        const response = await fetch(url);
+        const data = await response.json();
+        const cotizacionBelo = parseFloat(data.totalBid);
+        return cotizacionBelo.toFixed(2); // Redondear a dos decimales
+    } catch (error) {
+        console.error('Error al obtener datos de Belo:', error);
+        return 'Error al obtener datos de Belo';
+    }
+}
 // Actualizar cada 3 segundos
 setInterval(async () => {
     const cotizacionBinance = await obtenerCotizacionBinance();
     const cotizacionFiwind = await obtenerCotizacionFiwind();
+    const cotizacionBelo = await obtenerCotizacionBelo();
     if (cotizacionBinance && cotizacionFiwind) {
         const diferenciaPorcentual = ((cotizacionFiwind - cotizacionBinance) / cotizacionBinance) * 100;
-        console.log(`Cotización Binance: ${cotizacionBinance}`);
-        console.log(`Cotización Fiwind: ${cotizacionFiwind}`);
-        console.log(`Diferencia: ${diferenciaPorcentual.toFixed(2)}%`);
+        console.log(`Binance: ${cotizacionBinance}`);
+        console.log(`Fiwind: ${cotizacionFiwind}`);
+        console.log(`${diferenciaPorcentual.toFixed(2)}%`);
         const diferenciaElemento = document.getElementById("diferenciaPorcentual");
-        if (diferenciaPorcentual >= 0.25) {
+        if (diferenciaPorcentual >= 0.30) {
             const ahora = Date.now();
             if (ahora - ultimoMensaje >= 10 * 60 * 1000) { // 15 minutos en milisegundos
                 sendMessage("¡DIFERENCIA OPTIMA!")
@@ -49,6 +63,26 @@ setInterval(async () => {
             diferenciaElemento.style.color = "limegreen";
         } else if (diferenciaPorcentual < 0) {
             diferenciaElemento.style.color = "red";
+        }
+    }
+    if (cotizacionBinance && cotizacionBelo) {
+        const diferenciaPorcentual2 = ((cotizacionBelo - cotizacionBinance) / cotizacionBinance) * 100;
+        console.log(`Binance: ${cotizacionBinance}`);
+        console.log(`Belo: ${cotizacionBelo}`);
+        console.log(`${diferenciaPorcentual2.toFixed(2)}%`);
+        const diferenciaElemento2 = document.getElementById("diferenciaPorcentual2");
+        if (diferenciaPorcentual >= 0.30) {
+            const ahora = Date.now();
+            if (ahora - ultimoMensaje >= 10 * 60 * 1000) { // 15 minutos en milisegundos
+                sendMessage("¡DIFERENCIA OPTIMA!")
+                    .catch(error => console.error('Error al enviar el mensaje:', error));
+                ultimoMensaje = ahora;
+            }
+        }
+        if (diferenciaPorcentual2 > 0) {
+            diferenciaElemento2.style.color = "limegreen";
+        } else if (diferenciaPorcentual2 < 0) {
+            diferenciaElemento2.style.color = "red";
         }
     }
 }, 3000);
@@ -78,4 +112,5 @@ async function sendMessage(text) {
 module.exports = {
     obtenerCotizacionBinance,
     obtenerCotizacionFiwind,
+    obtenerCotizacionBelo,
 };
