@@ -54,7 +54,7 @@ setInterval(async () => {
         if (diferenciaPorcentual >= 0.30) {
             const ahora = Date.now();
             if (ahora - ultimoMensaje >= 10 * 60 * 1000) { // 15 minutos en milisegundos
-                sendMessage("¡DIFERENCIA OPTIMA!")
+                sendMessage("VENTA EN FIWIND")
                     .catch(error => console.error('Error al enviar el mensaje:', error));
                 ultimoMensaje = ahora;
             }
@@ -74,7 +74,7 @@ setInterval(async () => {
         if (diferenciaPorcentual >= 0.30) {
             const ahora = Date.now();
             if (ahora - ultimoMensaje >= 10 * 60 * 1000) { // 15 minutos en milisegundos
-                sendMessage("¡DIFERENCIA OPTIMA!")
+                sendMessage("VENTA EN BELO")
                     .catch(error => console.error('Error al enviar el mensaje:', error));
                 ultimoMensaje = ahora;
             }
@@ -86,7 +86,7 @@ setInterval(async () => {
         }
     }
 }, 3000);
-// Ejemplo usando fetch (recomendado)
+// Funcion para enviar mensaje
 async function sendMessage(text) {
     const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
     const obj = {

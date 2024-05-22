@@ -21,6 +21,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 80%;
+    gap: 5%;
 }
 .contenedor1 {
     display: grid;
@@ -40,22 +41,22 @@ body {
 }
 #precioBinance {
     font-size: 200%;
-    color: #15c50f;
+    color: #F3BA2F;
     display: grid;
     place-items: center;
-    border: 5px solid #e0f2fa;
-    background-color: rgba(239, 240, 211, 0.90); /* Agrega el color de fondo que desees */
+    border: 5px solid #ffffff;
+    background-color: #0C0E12; /* Agrega el color de fondo que desees */
     border-radius: 10px;
-    width: 60%;
+    width: 90%;
     margin-bottom: 3vh;
     }
 #precioFiwind {
     font-size: 35px;
     text-align: center; /* Alinea el texto al centro horizontalmente */
-    color: #15c50f;
+    color:  #F4C430;
     display: flex;
     border: 5px solid #e0f2fa;
-    background-color: rgb(239, 240, 211, 0.90); /* Agrega el color de fondo que desees */
+    background-color: #0C0E12; /* Agrega el color de fondo que desees */
     border-radius: 10px;
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
     margin: auto;
@@ -64,10 +65,10 @@ body {
 #precioBelo {
     font-size: 35px;
     text-align: center; /* Alinea el texto al centro horizontalmente */
-    color: #15c50f;
+    color: #e0f2fa;
     display: flex;
-    border: 5px solid #e0f2fa;
-    background-color: rgb(239, 240, 211, 0.90); /* Agrega el color de fondo que desees */
+    border: 5px solid #98eb98;
+    background-color: #8617ee;
     border-radius: 10px;
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
     margin: auto;
@@ -77,11 +78,11 @@ body {
 #diferenciaPorcentual {
     font-size: 50px;
     text-align: center; /* Alinea el texto al centro horizontalmente */
-    color: rgb(0, 0, 0); /* Cambia el color según tus preferencias */
+    color: #000000; /* Cambia el color según tus preferencias */
     display: flex;
-    border: 5px solid #3007e7;
+    border: 5px solid #e0f2fa;
     border-radius: 10px;
-    background-color: rgb(240, 241, 147); /* Agrega el color de fondo que desees */
+    background-color: #0C0E12; /* Agrega el color de fondo que desees */
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
     margin: auto; /* Centra horizontalmente */
     justify-content: space-around;
@@ -91,9 +92,9 @@ body {
     text-align: center; /* Alinea el texto al centro horizontalmente */
     color: rgb(0, 0, 0); /* Cambia el color según tus preferencias */
     display: flex;
-    border: 5px solid #3007e7;
+    border: 5px solid #98eb98;
     border-radius: 10px;
-    background-color: rgb(240, 241, 147); /* Agrega el color de fondo que desees */
+    background-color: #8617ee; /* Agrega el color de fondo que desees */
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
     margin: auto; /* Centra horizontalmente */
     justify-content: space-around;
