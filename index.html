@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Arbitra Hoy</title>
+    <title>Cotización en BNC y FWND</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/ico" href="iconoArsUsdt128x128.ico">
     <link rel="stylesheet" href="styles.css"> <!-- Enlaza tu archivo CSS externo -->
@@ -22,33 +22,58 @@
                 <p id="precioBelo">Belo...</p>
                 <p id="diferenciaPorcentual2">Datos...</p>
             </div>
+            <div class="contenedor3">
+                <p id="precioBncp2p">BncP2P..</p>
+                <p id="diferenciaPorcentual3">Datos...</p>
+            </div>
+            <div class="contenedor4">
+                <span class="info" title="Este exchange tiene comisión de transferencia blockchain...!">
+                    <img src="iconoAdvertencia.png" alt="Icono de Advertencia" id="advertencia">
+                </span>
+                <p id="precioPlus">Plus..</p>
+                <p id="diferenciaPorcentual4">Datos...</p>
+            </div>
         </div>
     </div>
     <script src="spreadBF.js"></script>
     <script>
         // Llama a las funciones para obtener las cotizaciones
         obtenerCotizacionBinance().then(cotizacionBinance => {
-            document.getElementById("precioBinance").textContent = `BINANCE: ${cotizacionBinance} ARS`;
+            document.getElementById("precioBinance").textContent = `Binance: ${cotizacionBinance} ARS`;
         });
         obtenerCotizacionFiwind().then(cotizacionFiwind => {
-            document.getElementById("precioFiwind").textContent = `FIWIND: ${cotizacionFiwind} ARS`;
+            document.getElementById("precioFiwind").textContent = `Fiwind: ${cotizacionFiwind} ARS`;
         });
         obtenerCotizacionBelo().then(cotizacionBelo => {
-            document.getElementById("precioBelo").textContent = ` BELO : ${cotizacionBelo} ARS`;
+            document.getElementById("precioBelo").textContent = ` Belo : ${cotizacionBelo} ARS`;
         });
-        // Actualizar cada 3 segundos 
+        obtenerCotizacionBncp2p().then(cotizacionBncp2p => {
+            document.getElementById("precioBncp2p").textContent = `BncP2P: ${cotizacionBncp2p} ARS`;
+        });
+        obtenerCotizacionPlus().then(cotizacionPlus => {
+            document.getElementById("precioPlus").textContent = ` Plus : ${cotizacionPlus} ARS`;
+        });
+        // Actualizar cada 3 segundos
         setInterval(async () => {
             const cotizacionBinance = await obtenerCotizacionBinance();
             const cotizacionFiwind = await obtenerCotizacionFiwind();
             const cotizacionBelo = await obtenerCotizacionBelo();
+            const cotizacionBncp2p = await obtenerCotizacionBncp2p();
+            const cotizacionPlus = await obtenerCotizacionPlus();
             if (cotizacionBinance && cotizacionFiwind) {
-                document.getElementById("precioBinance").textContent = `BINANCE: ${cotizacionBinance} ARS`;
-                document.getElementById("precioFiwind").textContent = `FIWIND: ${cotizacionFiwind} ARS`;
-                document.getElementById("precioBelo").textContent = ` BELO : ${cotizacionBelo} ARS`;
+                document.getElementById("precioBinance").textContent = `Binance: ${cotizacionBinance} ARS`;
+                document.getElementById("precioFiwind").textContent = `Fiwind: ${cotizacionFiwind} ARS`;
+                document.getElementById("precioBelo").textContent = ` Belo : ${cotizacionBelo} ARS`;
+                document.getElementById("precioBncp2p").textContent = `BncP2P: ${cotizacionBncp2p} ARS`;
+                document.getElementById("precioPlus").textContent = ` Plus : ${cotizacionPlus} ARS`;
                 const diferenciaPorcentual = ((cotizacionFiwind - cotizacionBinance) / cotizacionBinance) * 100;
                 document.getElementById("diferenciaPorcentual").textContent = ` ${diferenciaPorcentual.toFixed(2)}%`;
                 const diferenciaPorcentual2 = ((cotizacionBelo - cotizacionBinance) / cotizacionBinance) * 100;
                 document.getElementById("diferenciaPorcentual2").textContent = ` ${diferenciaPorcentual2.toFixed(2)}%`;
+                const diferenciaPorcentual3 = ((cotizacionBncp2p - cotizacionBinance) / cotizacionBinance) * 100;
+                document.getElementById("diferenciaPorcentual3").textContent = ` ${diferenciaPorcentual3.toFixed(2)}%`;
+                const diferenciaPorcentual4 = ((cotizacionPlus - cotizacionBinance) / cotizacionBinance) * 100;
+                document.getElementById("diferenciaPorcentual4").textContent = ` ${diferenciaPorcentual4.toFixed(2)}%`;
             }
         }, 3000);
     </script>

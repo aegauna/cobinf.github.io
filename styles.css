@@ -20,22 +20,40 @@ body {
 .datos {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 80%;
+    grid-template-rows: auto auto;
+    width: 100%;
     gap: 5%;
 }
-.contenedor1 {
-    display: grid;
+.contenedor1,
+.contenedor2,
+.contenedor3 {
+    display: flex;
+    margin-top: 0;
+    height: auto; /* Cambia a 'auto' para ajustar la altura al contenido */
     place-items: center;
     flex-direction: column;
 }
-.contenedor2 {
-    display: grid;
+.contenedor4 {
+    display: flex;
+    margin-top: 0; /* Ajusta el margen superior como necesites */
+    height: auto; /* Cambia a 'auto' para ajustar la altura al contenido */
     place-items: center;
     flex-direction: column;
+}
+.info {
+    display: flex;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+#advertencia {
+    height: auto;
+    width: 2em;
+    margin-bottom: 0;
 }
 #imagenCentral {
-    margin: auto;
-    margin-bottom: 1%;
+    margin-top: 0;
+    margin-bottom: 0;
     width: 10em;
     height: 10em;
 }
@@ -48,7 +66,8 @@ body {
     background-color: #0C0E12; /* Agrega el color de fondo que desees */
     border-radius: 10px;
     width: 90%;
-    margin-bottom: 3vh;
+    margin-top: 0;
+    margin-bottom: 0;
     }
 #precioFiwind {
     font-size: 35px;
@@ -59,7 +78,7 @@ body {
     background-color: #0C0E12; /* Agrega el color de fondo que desees */
     border-radius: 10px;
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
-    margin: auto;
+    margin: 0;
     margin-bottom: 3vh;
 }
 #precioBelo {
@@ -71,8 +90,34 @@ body {
     background-color: #8617ee;
     border-radius: 10px;
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
-    margin: auto;
+    margin: 0;
     margin-bottom: 3vh;
+}
+#precioBncp2p {
+    font-size: 35px;
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    color:  #F4C430;
+    display: flex;
+    border: 5px solid #e0f2fa;
+    background-color: #0C0E12; /* Agrega el color de fondo que desees */
+    border-radius: 10px;
+    max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
+    margin-top: 2%;
+    margin-bottom: 3vh;
+}
+#precioPlus {
+    font-size: 35px;
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    color:  #ffffff;
+    display: flex;
+    border: 5px solid #b704bd;
+    background-color: #f15c06; /* Agrega el color de fondo que desees */
+    border-radius: 10px;
+    max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
+    margin-top: 0;
+    margin-bottom: 1%;
+    grid-column: 2;
+    grid-row: 1;
 }
 
 #diferenciaPorcentual {
@@ -84,7 +129,7 @@ body {
     border-radius: 10px;
     background-color: #0C0E12; /* Agrega el color de fondo que desees */
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
-    margin: auto; /* Centra horizontalmente */
+    margin: 0; /* Centra horizontalmente */
     justify-content: space-around;
 }
 #diferenciaPorcentual2 {
@@ -96,6 +141,32 @@ body {
     border-radius: 10px;
     background-color: #8617ee; /* Agrega el color de fondo que desees */
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
-    margin: auto; /* Centra horizontalmente */
+    margin: 0; /* Centra horizontalmente */
     justify-content: space-around;
+}
+#diferenciaPorcentual3 {
+    font-size: 50px;
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    color: #000000; /* Cambia el color según tus preferencias */
+    display: flex;
+    border: 5px solid #e0f2fa;
+    border-radius: 10px;
+    background-color: #0C0E12; /* Agrega el color de fondo que desees */
+    max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 0; /* Centra horizontalmente */
+    justify-content: space-around;
+}
+#diferenciaPorcentual4 {
+    font-size: 50px;
+    text-align: center; /* Alinea el texto al centro horizontalmente */
+    color: #ffffff; /* Cambia el color según tus preferencias */
+    display: flex;
+    border: 5px solid #b704bd;
+    border-radius: 10px;
+    background-color: #f15c06; /* Agrega el color de fondo que desees */
+    max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 0; /* Centra horizontalmente */
+    justify-content: space-around;
+    grid-column: 2;
+    grid-row: 2;
 }
