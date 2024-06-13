@@ -105,13 +105,13 @@ body {
     margin-top: 2%;
     margin-bottom: 3vh;
 }
-#precioPlus {
+#precioOkx {
     font-size: 35px;
     text-align: center; /* Alinea el texto al centro horizontalmente */
     color:  #ffffff;
     display: flex;
-    border: 5px solid #b704bd;
-    background-color: #f15c06; /* Agrega el color de fondo que desees */
+    border: 5px solid #ffffff;
+    background-color: #000000; /* Agrega el color de fondo que desees */
     border-radius: 10px;
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
     margin-top: 0;
@@ -161,9 +161,9 @@ body {
     text-align: center; /* Alinea el texto al centro horizontalmente */
     color: #ffffff; /* Cambia el color según tus preferencias */
     display: flex;
-    border: 5px solid #b704bd;
+    border: 5px solid #ffffff;
     border-radius: 10px;
-    background-color: #f15c06; /* Agrega el color de fondo que desees */
+    background-color: #0C0E12; /* Agrega el color de fondo que desees */
     max-width: 200px; /* Ajusta el ancho máximo según tus necesidades */
     margin: 0; /* Centra horizontalmente */
     justify-content: space-around;

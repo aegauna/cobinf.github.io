@@ -30,7 +30,7 @@
                 <span class="info" title="Este exchange tiene comisión de transferencia blockchain...!">
                     <img src="iconoAdvertencia.png" alt="Icono de Advertencia" id="advertencia">
                 </span>
-                <p id="precioPlus">Plus..</p>
+                <p id="precioOkx">OkXP2P..</p>
                 <p id="diferenciaPorcentual4">Datos...</p>
             </div>
         </div>
@@ -50,8 +50,8 @@
         obtenerCotizacionBncp2p().then(cotizacionBncp2p => {
             document.getElementById("precioBncp2p").textContent = `BncP2P: ${cotizacionBncp2p} ARS`;
         });
-        obtenerCotizacionPlus().then(cotizacionPlus => {
-            document.getElementById("precioPlus").textContent = ` Plus : ${cotizacionPlus} ARS`;
+        obtenerCotizacionOkx().then(cotizacionOkx => {
+            document.getElementById("precioOkx").textContent = `OkXP2P: ${cotizacionOkx} ARS`;
         });
         // Actualizar cada 3 segundos
         setInterval(async () => {
@@ -59,20 +59,20 @@
             const cotizacionFiwind = await obtenerCotizacionFiwind();
             const cotizacionBelo = await obtenerCotizacionBelo();
             const cotizacionBncp2p = await obtenerCotizacionBncp2p();
-            const cotizacionPlus = await obtenerCotizacionPlus();
+            const cotizacionOkx = await obtenerCotizacionOkx();
             if (cotizacionBinance && cotizacionFiwind) {
                 document.getElementById("precioBinance").textContent = `Binance: ${cotizacionBinance} ARS`;
                 document.getElementById("precioFiwind").textContent = `Fiwind: ${cotizacionFiwind} ARS`;
                 document.getElementById("precioBelo").textContent = ` Belo : ${cotizacionBelo} ARS`;
                 document.getElementById("precioBncp2p").textContent = `BncP2P: ${cotizacionBncp2p} ARS`;
-                document.getElementById("precioPlus").textContent = ` Plus : ${cotizacionPlus} ARS`;
+                document.getElementById("precioOkx").textContent = `OkXP2P: ${cotizacionOkx} ARS`;
                 const diferenciaPorcentual = ((cotizacionFiwind - cotizacionBinance) / cotizacionBinance) * 100;
                 document.getElementById("diferenciaPorcentual").textContent = ` ${diferenciaPorcentual.toFixed(2)}%`;
                 const diferenciaPorcentual2 = ((cotizacionBelo - cotizacionBinance) / cotizacionBinance) * 100;
                 document.getElementById("diferenciaPorcentual2").textContent = ` ${diferenciaPorcentual2.toFixed(2)}%`;
                 const diferenciaPorcentual3 = ((cotizacionBncp2p - cotizacionBinance) / cotizacionBinance) * 100;
                 document.getElementById("diferenciaPorcentual3").textContent = ` ${diferenciaPorcentual3.toFixed(2)}%`;
-                const diferenciaPorcentual4 = ((cotizacionPlus - cotizacionBinance) / cotizacionBinance) * 100;
+                const diferenciaPorcentual4 = ((cotizacionOkx - cotizacionBinance) / cotizacionBinance) * 100;
                 document.getElementById("diferenciaPorcentual4").textContent = ` ${diferenciaPorcentual4.toFixed(2)}%`;
             }
         }, 3000);

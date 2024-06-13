@@ -53,17 +53,17 @@ async function obtenerCotizacionBncp2p() {
         return 'Error al obtener datos de Bncp2p';
     }
 }
-// Función para obtener la cotización de Plus Crypto
-async function obtenerCotizacionPlus() {
+// Función para obtener la cotización de OKX
+async function obtenerCotizacionOkx() {
     try {
-        const url = " https://criptoya.com/api/pluscrypto/usdt/ars/0.1";
+        const url = "https://criptoya.com/api/okexp2p/usdt/ars/0.1";
         const response = await fetch(url);
         const data = await response.json();
-        const cotizacionPlus = parseFloat(data.totalBid);
-            return cotizacionPlus.toFixed(2); // Redondear a dos decimales
+        const cotizacionOkx = parseFloat(data.totalBid);
+            return cotizacionOkx.toFixed(2); // Redondear a dos decimales
     } catch (error) {
-        console.error('Error al obtener datos de Plus Crypto:', error);
-        return 'Error al obtener datos de Plus Crypto';
+        console.error('Error al obtener datos de Okx:', error);
+        return 'Error al obtener datos de Okx';
     }
 }
 // Actualizar cada 3 segundos
@@ -72,7 +72,7 @@ setInterval(async () => {
     const cotizacionFiwind = await obtenerCotizacionFiwind();
     const cotizacionBelo = await obtenerCotizacionBelo();
     const cotizacionBncp2p = await obtenerCotizacionBncp2p();
-    const cotizacionPlus = await obtenerCotizacionPlus();
+    const cotizacionOkx = await obtenerCotizacionOkx();
     if (cotizacionBinance && cotizacionFiwind) {
         const diferenciaPorcentual = ((cotizacionFiwind - cotizacionBinance) / cotizacionBinance) * 100;
         console.log(`Binance: ${cotizacionBinance}`);
@@ -136,17 +136,17 @@ setInterval(async () => {
             diferenciaElemento3.style.color = "red";
         }
     }
-    if (cotizacionBinance && cotizacionPlus) {
-        const diferenciaPorcentual4 = ((cotizacionPlus - cotizacionBinance) / cotizacionBinance) * 100;
+    if (cotizacionBinance && cotizacionOkx) {
+        const diferenciaPorcentual4 = ((cotizacionOkx - cotizacionBinance) / cotizacionBinance) * 100;
         console.log(`Binance: ${cotizacionBinance}`);
-        console.log(` Plus : ${cotizacionPlus}`);
+        console.log(` OkX : ${cotizacionOkx}`);
         console.log(`${diferenciaPorcentual4.toFixed(2)}%`);
         const diferenciaElemento4 = document.getElementById("diferenciaPorcentual4");
         diferenciaElemento4.textContent = `${diferenciaPorcentual4.toFixed(2)}%`;
         if (diferenciaPorcentual4 >= 0.45) {
             const ahora = Date.now();
             if (ahora - ultimoMensaje >= 20 * 60 * 1000) { // 20 minutos en milisegundos
-                sendMessage("VENTA EN PLUS CRYPTO")
+                sendMessage("VENTA EN OKX")
                     .catch(error => console.error('Error al enviar el mensaje:', error));
                 ultimoMensaje = ahora;
             }
@@ -186,5 +186,5 @@ module.exports = {
     obtenerCotizacionFiwind,
     obtenerCotizacionBelo,
     obtenerCotizacionBncp2p,
-    obtenerCotizacionPlus,
+    obtenerCotizacionOkx,
 };
